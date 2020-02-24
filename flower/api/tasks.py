@@ -314,7 +314,7 @@ Get a task result
         if timeout:
             result.get(timeout=timeout, propagate=False)
             self.update_response_result(response, result)
-        elif result.ready():
+        elif result.ready() or result.get('meta'):
             self.update_response_result(response, result)
         self.write(response)
 
